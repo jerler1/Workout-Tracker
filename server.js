@@ -3,7 +3,6 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const Place = require("./models/Place");
 
 const app = express();
 
@@ -35,23 +34,9 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: " + err);
 });
 
-
-
-// TODO: ABSTRACT THESE PLACES ROUTES OUT INTO A CONTROLLER
-
-app.get("/api/places", (req, res) => {
-  Place.find().then((allPlaces) => {
-    res.json(allPlaces);
-  });
-});
-
-app.post("/api/places", (req, res) => {
-  Place.create(req.body).then((newPlace) => {
-    res.json(newPlace);
-  });
-});
-
-// TODO: ADD PUT AND DELETE ROUTES
+// ROUTES
+// ============================================
+app.use(require("./controllers/workoutsController"));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
