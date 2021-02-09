@@ -17,29 +17,31 @@
 To intall this application using prebuilt html and css elements involved this:
 
 1. Install the npm dependencies.
-1. Type node index.js in your node window.
+1. Type npm run seed.
+1. Type node server.js.
 
 #### **Trials**
 
 ---
+The front end was provided and doesn't seem to work quite the way I would like it too.
 
-Learning how to join tables while trying to keep track of various id's was a rewarding task to finish, but very draining.
+Learning how to optimize the mongoose queries was a fun dip into documentation.
 
 #### **Usage**
 
 ---
 
-The usage of this app is simple. There is a starting menu. Choose whichever option you want and follow the prompts. If you want to see the roles, departments, or employee's click the approriate view option. If you want to add do the same for the add options.
-![gif of app](./Assets/gif.gif)
-Link to the deployed website can be found [here](https://github.com/jerler1/Employee-Roster).
+To start a exercise click "Add Exercise" on the root directory and enter the information in the form.  If you wish to continue that exercise click "Continue Exercise", if not, then click "End Exercise".  There are two links in the top left: "Fitness Tracker" and "Dashboard".  Fitness Tracker will send you back to the base route, and Dashboard will give you the stats of your past seven workouts.
+![Screenshot](./public/images/applicationScreenshot.png)
+Link to the deployed website can be found [here](https://murmuring-waters-52428.herokuapp.com/).
 
-Link to the video is [here](https://drive.google.com/file/d/13U3kQguU-30ykuTUrLnWFEYe0VKW6Eel/view)
+Link to the GitHub repository is [here](https://github.com/jerler1/Workout-Tracker).
 
 #### **Credits**
 
 ---
 
-Thanks to my TA Peter for teaching me util promisify.
+Thanks to Pete, Tony, Spencer, Jeana-Rose, and Kyle.
 
 #### **License**
 
