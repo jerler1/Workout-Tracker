@@ -42,14 +42,13 @@ const WorkoutSchema = new Schema(
 );
 
 // Virtual for total duration.
-// WorkoutSchema.virtual("totalDuration").get(function(){
-//   let total = 0;
-//   for (let i = 0; i < this.exercises.length; i++) {
-//     total += this.exercies[i].duration;
-//     console.log(total);
-//   }
-//   return total;
-// });
+WorkoutSchema.virtual("totalDuration").get(function(){
+  let total = 0;
+  for (let i = 0; i < this.exercises.length; i++) {
+    total = total + this.exercises[i].duration;
+  }
+  return total;
+});
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
