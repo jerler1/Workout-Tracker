@@ -19,19 +19,47 @@ router.get("/exercise", (req, res) => {
 
 // API ROUTES
 // =========================================
-
+// Generic Get.
 router.get("/api/workouts", (req, res) => {
-  console.log(req.body);
+  Workout.find({})
+    .then((workout) => {
+      console.log(workout);
+      return res.json(workout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
+// Range - Getting last 7 workouts.
 router.get("/api/workouts/range", (req, res) => {
   console.log(req.body);
+  Workout.find({})
+    .limit(7)
+    .then((sevenWorkout) => {
+      return res.json(sevenWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
+// Update
 router.put("/api/workouts/:id", (req, res) => {
-  console.log(req.body);
+  const id = req.params.id;
+  Workout.findByIdAndUpdate(
+    { _id: id },
+    {
+      $set: req.body,
+    },
+    (populatedWorkout) => {
+      console.log(req.body);
+      console.log(populatedWorkout);
+    }
+  );
 });
 
+// Create
 router.post("/api/workouts", (req, res) => {
   console.log(req.body);
 });
