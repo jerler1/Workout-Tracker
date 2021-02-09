@@ -23,7 +23,6 @@ router.get("/exercise", (req, res) => {
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
     .then((workout) => {
-      console.log(workout);
       return res.json(workout);
     })
     .catch((err) => {
@@ -61,7 +60,13 @@ router.put("/api/workouts/:id", (req, res) => {
 
 // Create
 router.post("/api/workouts", (req, res) => {
-  console.log(req.body);
+  Workout.create(req.body)
+    .then((newWorkout) => {
+      return res.json(newWorkout);
+    })
+    .then((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;
